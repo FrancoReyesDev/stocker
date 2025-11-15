@@ -11,4 +11,7 @@ export default defineConfig({
     reactRouter(),
     tsconfigPaths(),
   ],
+  server: {
+    allowedHosts: ["ways-slow-languages-early.trycloudflare.com"],
+  },
 });

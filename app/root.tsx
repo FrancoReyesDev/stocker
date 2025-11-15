@@ -23,6 +23,14 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export function headers(_: Route.HeadersArgs) {
+  return {
+    "Cache-Control": " no-store, no-cache, must-revalidate",
+    Pragma: "no-cache",
+    Expires: " 0",
+  };
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
