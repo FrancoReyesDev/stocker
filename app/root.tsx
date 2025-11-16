@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -28,7 +29,12 @@ export default function App() {
   return <Outlet />;
 }
 
+
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const matches = useMatches()
+  const routeMatch = matches.find(match=>match.)
+  
   return (
     <html lang="en">
       <head>
@@ -39,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div className="grid h-[100dvh] grid-rows-[auto_1fr_auto] ">
-          <Header />
+          <Header title={matches.}/>
 
           <main className="overflow-y-auto">{children}</main>
           <Footer />
