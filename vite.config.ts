@@ -12,6 +12,6 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   server: {
-    allowedHosts: ["ways-slow-languages-early.trycloudflare.com"],
+    allowedHosts: ["various-leisure-processes-take.trycloudflare.com"],
   },
 });

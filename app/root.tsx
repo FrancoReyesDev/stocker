@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { Header } from "./components/root/header";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,12 +24,8 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function headers(_: Route.HeadersArgs) {
-  return {
-    "Cache-Control": " no-store, no-cache, must-revalidate",
-    Pragma: "no-cache",
-    Expires: " 0",
-  };
+export default function App() {
+  return <Outlet />;
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -41,7 +38,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div className="grid h-[100dvh] grid-rows-[auto_1fr_auto] ">
+          <Header />
+
+          <main className="overflow-y-auto">{children}</main>
+          <Footer />
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -49,8 +51,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  return <Outlet />;
+function Footer() {
+  return <footer className="h-16 bg-background border-t">Footer</footer>;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

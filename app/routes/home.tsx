@@ -3,7 +3,7 @@ import { useBarcodeDetector } from "~/hooks/useBarcodeDetector";
 import { useCanvasRenderer } from "~/hooks/useCanvasRenderer";
 import { useMediaDevices } from "~/hooks/useMediaDevices";
 
-export default function Home() {
+export default function HomePage() {
   const [enabled, setEnabled] = useState(true);
   const { videoRef } = useMediaDevices({ enabled, onError, onUnavailable });
   const { canvasRef } = useCanvasRenderer({ videoRef, enabled });
